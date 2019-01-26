@@ -14,13 +14,13 @@ var   mongoose = require('mongoose'),
       
 
 // find recipients that match criteria
-var mailRecipients = function (mailDay) {
+var mailRecipients = mailDay => {
   console.log('Recipients fired');
   // setup promises
   var deffered = Q.defer();
   // find recipients with a scheduleDate that match today
-  Recipient.find().where('scheduleDate').equals(moment().format("MMM Do YY")).exec(    
-    function(err, recipient){
+  Recipient.find().where('scheduleDate').equals(mailDay).exec(    
+    (err, recipient) => {
     var recipients = [];
     // handle error
     if (err) {
@@ -30,14 +30,14 @@ var mailRecipients = function (mailDay) {
       for (var i = recipient.length - 1; i >= 0; i--) {        
         recipients.push(recipients[i]);
       }  
-      deffered.resolve(recipeints);
+      deffered.resolve(recipients);
     }    
   });
   return deffered.promise;
 };
 
 // creates an email data for each recipients and bundles them into an array
-var mailCreator = function(recipients) {
+var mailCreator = recipients => {
   var mailing = [];
 
   for (var i = recipients.length - 1; i >= 0; i--) {
@@ -53,7 +53,7 @@ var mailCreator = function(recipients) {
   return mailing;
 }
 
-var mailScheduler = function (job) {
+var mailScheduler = job => {
   // set rules for scheduler. Every day, 8AM 
   var rule = new schedule.RecurrenceRule();
       rule.dayOfWeek = [new schedule.Range(0, 6)];
@@ -63,7 +63,7 @@ var mailScheduler = function (job) {
 };
 
 // function to send user email given template and subject     
-var mailSender = function (recipientEmail, text) {
+var mailSender = (recipientEmail, text) => {
     // setup promises
     var deffered = Q.defer();
     // create new mailgun instance with credentials
@@ -79,7 +79,7 @@ var mailSender = function (recipientEmail, text) {
       text: text
     };
     // send your mailgun instance the mailData
-    mailgun.messages().send(mailData, function (err, body) {
+    mailgun.messages().send(mailData, (err, body) => {
       // If err console.log so we can debug
       if (err) {
         deffered.reject(console.log('failed: ' + err));
@@ -95,11 +95,11 @@ var mailSender = function (recipientEmail, text) {
 // Note! you will need to format
 // the date to match the date
 // in your user record
-var mailDay = new Date();
+var mailDay = moment().format("MMM Do YYYY");
 
 // call the scheduler, which takes a function
 // and pass in our mailing sequence
-mailScheduler(function () {
+mailScheduler(() => {
   // find users with preferences set for now
   mailRecipients(mailDay)
     .then(function (recipients) {
@@ -109,10 +109,10 @@ mailScheduler(function () {
       for (var i = mailing.length - 1; i >= 0; i--) {
         // email each user with their custom template
         mailSender(mailing[i].recipientEmail, mailing[i].text)
-          .then(function (res) {
+          .then(res => {
             console.log(res);
           })
-          .catch(function (err) {
+          .catch(err => {
             console.log("error: " + err)
           })
       }
