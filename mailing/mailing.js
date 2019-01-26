@@ -1,12 +1,9 @@
 'use strict';
 
 // require your mailgun package
-// Adding your key and domain to environment variables
-// is important as you don’t want these values 
-// in your source control or otherwise exposed.
-// process.env is an easy way to access your env variables
+
 var   mongoose = require('mongoose'),
-      User = mongoose.model('User'),
+      Recipient = mongoose.model('Recipient'),
       mailgun_api = process.env.MAILGUN_APIKEY,
       mailgun_domain = process.env.MAILGUN_DOMAIN,
       Mailgun = require('mailgun-js'),
@@ -16,9 +13,9 @@ var   mongoose = require('mongoose'),
       
       
 
-// find users that match criteria
+// find recipients that match criteria
 var mailRecipients = function (mailDay) {
-  console.log('users fired');
+  console.log('Recipients fired');
   // setup promises
   var deffered = Q.defer();
   // find recipients with a scheduleDate that match today
@@ -46,7 +43,7 @@ var mailCreator = function(recipients) {
   for (var i = recipients.length - 1; i >= 0; i--) {
     // create an object for each email you want sent
     var data = {
-        from: "Evergarden Services",
+        from: "Evergarden Services (we might need an email address here)",
         to: recipients.email,
         subject: "You got a new message on Evergarden!",
         text: recipients.message
@@ -66,7 +63,7 @@ var mailScheduler = function (job) {
 };
 
 // function to send user email given template and subject     
-var mailSender = function (recipientEmail, subject, text) {
+var mailSender = function (recipientEmail, text) {
     // setup promises
     var deffered = Q.defer();
     // create new mailgun instance with credentials
@@ -111,7 +108,7 @@ mailScheduler(function () {
       // for each mailing item, send an email
       for (var i = mailing.length - 1; i >= 0; i--) {
         // email each user with their custom template
-        mailSender(mailing[i].recipientEmail,'You got a new message on Evergarden!', mailing[i].text)
+        mailSender(mailing[i].recipientEmail, mailing[i].text)
           .then(function (res) {
             console.log(res);
           })
