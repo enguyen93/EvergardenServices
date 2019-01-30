@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create Schema
 const RecipientSchema = new Schema({
+
+  _id: Schema.Types.ObjectId,
+
   name: {
     type: String,
     required: true
@@ -11,13 +14,10 @@ const RecipientSchema = new Schema({
     type: String,
     required: true
   },
-  message: {
-    type: String,
-    required: true
-  },
-  scheduleDate: {
-    type: Date,
-    required: true
-  }
+  messages:
+    [{
+      type: Schema.Types.ObjectId,
+      ref: 'messages'
+    }]
 });
 module.exports = Recipient = mongoose.model('recipients', RecipientSchema);
