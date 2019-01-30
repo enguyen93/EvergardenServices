@@ -9,7 +9,8 @@ var   mongoose = require('mongoose'),
       Mailgun = require('mailgun-js'),
       schedule = require('node-schedule'),
       Q = require('q'),
-      moment = require('moment'),
+      moment = require('moment');
+      require('dotenv').config()
       
       
 
@@ -73,7 +74,7 @@ var mailSender = (recipientEmail, text) => {
     });
     // setup the basic mail data
     var mailData = {
-      from: 'Evergarden Services',
+      from: MAILGUN_DOMAIN,
       to: recipientEmail,
       subject:  "You got a new message on Evergarden!",
       text: text
