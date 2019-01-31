@@ -1,7 +1,7 @@
 // dependencies
-const express = require = ('express');
+const express = require('express');
 const router = express.Router();
-
+const mongoose = require("mongoose");
 // load mongoose models
 const User = require('../../models/User');
 const Recipient = require('../../models/Recipient');
@@ -17,13 +17,17 @@ router.get('/all', (req, res) => {
 // @POST api/recipients/addNew
 // @desc add new Recipient
 router.post('/addNew', (req, res) => {
-  Recipient.findOne({ email }).then(recipient => {
+  Recipient.findOne({ email: req.body.email })
+  .populate('user')
+  .then(recipient => {
     if (recipient) {
       return res.status(400).json({ email: 'Recipient already exists' });
     }
     const newRecipient = new Recipient({
+      _id: new mongoose.Types.ObjectId(),
       name: req.body.name,
-      email: req.body.email
+      email: req.body.email,
+      user: user._id
     });
 
     newRecipient

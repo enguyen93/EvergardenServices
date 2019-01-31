@@ -6,6 +6,11 @@ const RecipientSchema = new Schema({
 
   _id: Schema.Types.ObjectId,
 
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "users"
+  },
+
   name: {
     type: String,
     required: true

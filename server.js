@@ -5,7 +5,8 @@ const app = express();
 const passport = require("passport");
 const path = require("path");
 const users = require("./routes/api/users");
-
+const recipients = require("./routes/api/recipients");
+const messages = require("./routes/api/messages");
 // Bodyparser middleware
 app.use(
   express.urlencoded({
@@ -30,6 +31,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
+app.use("/api/recipients", recipients);
+app.use("/api/messages", messages);
 
 // Serve static assets if in production
 if(process.env.NODE_ENV === 'production') {
