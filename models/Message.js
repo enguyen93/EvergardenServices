@@ -4,8 +4,10 @@ const Schema = mongoose.Schema;
 // create schema
 const MessageSchema = new Schema({
 
-  _id: Schema.Types.ObjectId,
-
+  recipient: {
+    type: Schema.Types.ObjectId,
+    ref: "recipients"
+  },
   message: {
     type: String,
     required: true
