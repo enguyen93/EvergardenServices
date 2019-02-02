@@ -9,17 +9,21 @@ const MessageSchema = new Schema({
     ref: "recipients"
   },
   // message data
-  message: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: true
-  },
-  scheduleDate: {
-    type: Date,
-    required: true
-  }
+  messages: [
+    {
+      message: {
+        type: String,
+        required: true
+      },
+      title: {
+        type: String,
+        required: true
+      },
+      scheduleDate: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 });
 module.exports = Message = mongoose.model('messages', MessageSchema);

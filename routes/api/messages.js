@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 // load mongoose models
+// const Recipient = require('../../models/Recipient');
 const Message = require('../../models/Message');
 
 // @route GET to api/messages
@@ -11,7 +12,7 @@ const Message = require('../../models/Message');
 router.get('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Message.find({ recipient: req.recipient.id })
+    Recipient.find({ recipient: req.recipient.id })
       .sort({ scheduleDate: -1 })
       .then(message => res.json(message));
   }
@@ -22,20 +23,22 @@ router.get('/',
 router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Recipient.findOne({ _id: req.body._id })
     const newMessage = new Message({
       recipient: req.recipient.id,
       title: req.body.title,
       message: req.body.message,
       scheduleDate: req.body.scheduleDate
     });
-
     newMessage
       .save()
       .then(message => res.json(message))
-      .catch(err => console.log(err));
-    
-  });
+    // .catch(err => console.log(err));
+
+  }
+);
+
+
+
 
 // @PUT to api/messages
 // @desc Update any specific message
