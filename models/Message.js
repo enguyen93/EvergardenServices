@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // create schema
 const MessageSchema = new Schema({
   // relational data (reference to currently selected recipient)
-  _recipientId: {
+  recipient: {
     type: Schema.Types.ObjectId,
     ref: "recipients"
   },

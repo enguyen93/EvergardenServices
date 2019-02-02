@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // create Schema
 const RecipientSchema = new Schema({
   // relational data (reference to currently logged in user)
-  _userId: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "users"
   },
