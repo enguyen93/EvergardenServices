@@ -3,14 +3,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create Schema
 const RecipientSchema = new Schema({
-
-  _id: Schema.Types.ObjectId,
-
-  user: {
+  // relational data (reference to currently logged in user)
+  _userId: {
     type: Schema.Types.ObjectId,
     ref: "users"
   },
-
+  // recipient data
   name: {
     type: String,
     required: true
@@ -18,11 +16,6 @@ const RecipientSchema = new Schema({
   email: {
     type: String,
     required: true
-  },
-  messages:
-    [{
-      type: Schema.Types.ObjectId,
-      ref: 'messages'
-    }]
+  }
 });
 module.exports = Recipient = mongoose.model('recipients', RecipientSchema);

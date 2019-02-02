@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 // load mongoose models
-const User = require('../../models/User');
 const Recipient = require('../../models/Recipient');
 const Message = require('../../models/Message');
 

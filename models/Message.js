@@ -3,16 +3,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create schema
 const MessageSchema = new Schema({
-
-  recipient: {
+  // relational data (reference to currently selected recipient)
+  _recipientId: {
     type: Schema.Types.ObjectId,
     ref: "recipients"
   },
+  // message data
   message: {
     type: String,
     required: true
   },
-  title : {
+  title: {
     type: String,
     required: true
   },
