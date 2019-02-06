@@ -9,7 +9,7 @@ const Message = require('../../models/Message');
 
 // @route GET to api/messages
 // @desc Get all messages associated with selected recipient
-router.get('/all', (req, res) => {
+router.get('/', (req, res) => {
   Recipient.find({ messages })
     .sort({ scheduleDate: -1 })
     .then(message => res.json(message));
