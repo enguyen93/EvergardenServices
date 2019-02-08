@@ -3,14 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create Schema
 const RecipientSchema = new Schema({
-
-  _id: Schema.Types.ObjectId,
-
   user: {
     type: Schema.Types.ObjectId,
     ref: "users"
   },
-
   name: {
     type: String,
     required: true
@@ -19,10 +15,23 @@ const RecipientSchema = new Schema({
     type: String,
     required: true
   },
-  messages:
-    [{
-      type: Schema.Types.ObjectId,
-      ref: 'messages'
-    }]
+  messages: [
+    {
+      message: {
+        type: String,
+        required: true
+      },
+      title : {
+        type: String,
+        required: true
+      },
+      scheduleDate: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 });
 module.exports = Recipient = mongoose.model('recipients', RecipientSchema);
+//Putting a messages array into the Recipient model instead of having a separate table of messages
+//
