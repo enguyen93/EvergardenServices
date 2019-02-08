@@ -1,15 +1,16 @@
 import React from "react";
-import Full from "../components/Full/";
-import FullText from "../components/FullText/";
-import FullMini from "../components/FullMini";
-import Navbar from "../components/Navbar";
-import Button from "../components/Button";
+import Full from "../Full/";
+import FullText from "../FullText/";
+import FullMini from "../FullMini";
+import Navbar from "../Navbar";
+import Button from "../Button";
+import {Link} from "react-router-dom";
 // import Hero from "../components/Hero";
 // import Container from "../components/Container";
 // import Row from "../components/Row";
 // import Col from "../components/Col";
 
-function Landing() {
+function Home() {
 return (
   <div className="homeBody">
     <Navbar />
@@ -21,13 +22,13 @@ return (
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" id="nav-active" href="/">Home <span class="sr-only">(current)</span></a>
+            <Link class="nav-link" id="nav-active" to="/">Home <span class="sr-only">(current)</span></Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <Link class="nav-link" to="/login">Login</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/signup">Register</a>
+            <Link class="nav-link" to="/signup">Register</Link>
           </li>
         </ul>
       </div>
@@ -59,4 +60,4 @@ return (
 );
 }
 
-export default Landing;
+export default Home;
