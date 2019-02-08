@@ -1,0 +1,163 @@
+.formWrapper {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: black;
+    width: 30%;
+    /* bottom: 40%; */
+    position: absolute;
+    top: 15%;
+    left: 50%;
+}
+
+.testFlower{
+    max-height: 175px;
+    width: auto;
+    margin: 5% 0;
+}
+
+.signUpHeader,
+.loginHeader {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    /* font-size: 1.75em; */
+    color: rgb(83, 83, 196);
+}
+
+.signUpHeader h1, p {
+    margin: 0;
+}
+
+.signUpHeader h1 {
+    font-size: 4em;
+}
+
+.signUpHeader p {
+    font-size: 1.5em;
+}
+
+
+.loginFormBox {
+    display: flex;
+    flex-flow: column wrap;
+    /* align-items: center; */
+    /* justify-content: center; */
+    align-content: center;
+    width: 100%;
+}
+
+.signUpFormBox {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+}
+
+.formBoxTwo {
+    display: flex;
+    flex-flow: column wrap;
+    /* align-items: center; */
+    /* justify-content: center; */
+    align-content: center;
+    width: 100%;
+}
+
+.formInputs,
+.firstNameInput,
+.lastNameInput,
+.emailInput,
+.signPassInput {
+    margin: 2.5% 0;
+    font-size: 1.25em;
+    border-radius: 5px;
+    padding: 2%;
+    border: 1px solid rgb(224, 224, 224);
+}
+
+::placeholder {
+    color: rgb(197, 197, 197);
+}
+
+.formButton,
+.formContinue {
+    width: 100%;
+    margin: 2.5% 0;
+    padding: 3% 2%;
+    background-color: violet;
+    border: none;
+    transition: 0.4s;
+    color: white;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+}
+
+.formBelow {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: space-between;
+    align-items: center;
+    margin: 2.5%;
+    width: 100%;
+}
+
+.formBelow p {
+    margin: 0 2%;
+}
+
+.formBelow a {
+    text-decoration: none;
+    color: yellowgreen;
+}
+
+
+.formButton:hover,
+.formContinue:hover {
+    transition: 0.3s;
+    background-color: aqua;
+}
+
+@media all and (max-width: 800px) {
+    .formWrapper {
+        top: 15%;
+        left: 18%;
+        width: 65%;
+    }
+
+
+    .signUpHeader {
+        font-size: 1em;
+    }
+}
+
+@media all and (max-width: 414px) {
+    .formWrapper {
+        top: 12.5%;
+        left: 10%;
+        width: 80%;
+    }
+
+    .signUpHeader h1 {
+        font-size: 3.5em;
+    }
+    
+    .signUpHeader p {
+        font-size: 1.25em;
+    }
+
+    .firstNameInput {
+        width: 100%;
+    }
+
+    .lastNameInput {
+        width: 100%;
+    }
+}

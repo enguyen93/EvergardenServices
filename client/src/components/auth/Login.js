@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Navbar from "../Navbar";
+import Full from "../Full";
+import FormWrapper from "../FormWrapper";
 class Login extends Component {
   constructor() {
     super();
@@ -43,6 +46,33 @@ class Login extends Component {
   render() {
     const { errors } = this.state;
     return (
+      <div className="loginBody">
+        <Navbar />
+        <nav class="navbar fixed-top navbar-expand-lg bg-light navbar-light">
+            <Link class="navbar-brand" to="/">Evergarden</Link>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <Link class="nav-link" to="/">Home <span class="sr-only">(current)</span></Link>
+                    </li>
+                    <li class="nav-item active">
+                        <Link class="nav-link" id="nav-active" to="/login">Login</Link>
+                    </li>
+                    <li class="nav-item">
+                        <Link class="nav-link" to="/signup">Register</Link>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <Full>
+            <div className="flowerSVG">
+              <img src="https://i.imgur.com/y3yh4g7.png" alt="It's a flower" />
+            </div>
+            <FormWrapper>
+              <img className="testFlower" src="https://i.imgur.com/y3yh4g7.png" alt="It's a flower" />
       <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
@@ -110,6 +140,9 @@ class Login extends Component {
             </form>
           </div>
         </div>
+      </div>
+      </FormWrapper>
+        </Full>
       </div>
     );
   }
