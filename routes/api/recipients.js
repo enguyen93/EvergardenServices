@@ -1,8 +1,8 @@
-// dependencies
+// Dependencies
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-// load mongoose models
+// load Recipient Model
 const Recipient = require('../../models/Recipient');
 
 // @route GET to api/recipients
@@ -13,7 +13,8 @@ router.get('/',
   (req, res) => {
     Recipient.find({ user: req.user.id })
       .sort({ name: 1 })
-      .then(recipient => res.json(recipient));
+      .then(recipient => res.json(recipient))
+      .catch(err => res.json(err));
   }
 );
 
@@ -37,25 +38,26 @@ router.post('/',
         newRecipient
           .save()
           .then(recipient => res.json(recipient))
-          .catch(err => console.log(err));
+          .catch(err => res.json(err));
       });
   }
 );
 
-// @DELETE api/recipients
+// @DELETE api/recipients/(recipient _id)
 // @desc allow Users to Delete a Recipient
 // protected route
 router.delete('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Recipient.remove({ _id: req.params.id })
-      .then((dbRecipient) => {
-        res.json(dbRecipient);
-      });
+      .then((recipient) => {
+        res.json(recipient);
+      })
+      .catch(err => res.json(err));
   }
 );
 
-// @UPDATE api/recipients
+// @UPDATE api/recipients/(recipient _id)
 // @desc Update an existing Recipient
 // protected route
 router.put('/:id',
@@ -66,10 +68,10 @@ router.put('/:id',
       { $set: req.body },
       { new: true }
     )
-      .populate('')
-      .then((dbRecipient) => {
-        res.json(dbRecipient);
-      });
+      .then((recipient) => {
+        res.json(recipient);
+      })
+      .catch(err => res.json(err));
   }
 );
 

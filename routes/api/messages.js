@@ -1,25 +1,26 @@
-// dependencies
+// Dependencies
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-// load mongoose models
-// const Recipient = require('../../models/Recipient');
+// load Message model
 const Message = require('../../models/Message');
 
-// @route GET to api/messages
-// @desc Get messages associated with selected recipient through req.recipient.id
+// @route GET to api/messages/(recipient _id)
+// @desc Get messages associated with selected recipient
 // protected route
-router.get('/',
+router.get('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Recipient.find({ recipient: req.recipient.id })
+    Message.find({ recipient: req.params.id })
       .sort({ scheduleDate: -1 })
-      .then(message => res.json(message));
+      .then(message => res.json(message))
+      .catch(err => res.json(err));
   }
 );
 
 // @POST to api/messages
 // @desc Add a new message to a specific recipient
+// protected route
 router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
@@ -32,33 +33,41 @@ router.post('/',
     newMessage
       .save()
       .then(message => res.json(message))
-    // .catch(err => console.log(err));
+      .catch(err => res.json(err));
 
   }
 );
 
-
-
-
-// @PUT to api/messages
+// @PUT to api/messages/(message _id)
 // @desc Update any specific message
-router.put("/:id", function (req, res) {
-  // Create a new Message and pass the req.body to the entry
-  Messages.create(req.body)
-    .then(function (newMessage) {
-      // If a Message was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
-      // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
-      // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-      return Messages.findOneAndUpdate({ _id: req.params.id }, { message: newMessage._id }, { new: true });
-    })
-    .then(function (newMessage) {
-      // If we were able to successfully update an Article, send it back to the client
-      res.json(newMessage);
-    })
-    .catch(function (err) {
-      // If an error occurred, send it to the client
-      res.json(err);
-    });
-});
+// protected route
+router.put("/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Message.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: req.body },
+      { new: true }
+    )
+      .then(message => {
+        res.json(message);
+      })
+      .catch(err => res.json(err));
+  }
+);
+
+// @DELETE to api/messages/(message _id)
+// @desc Delete an existing message
+// protected route
+router.delete("/:id",
+  passort.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Message.remove({ _id: req.params.id })
+      .then(message => {
+        res.json(message);
+      })
+      .catch(err => res.json(err));
+  }
+);
 
 module.exports = router;
