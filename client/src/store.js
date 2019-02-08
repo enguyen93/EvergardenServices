@@ -8,9 +8,7 @@ const store = createStore(
   initialState,
   compose(
     applyMiddleware(...middleware),
-    window.REDUX_DEVTOOLS_EXTENSION_COMPOSE ? window.REDUX_DEVTOOLS_EXTENSION_COMPOSE({
-      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-      }) : compose
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 export default store;
