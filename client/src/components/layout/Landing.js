@@ -1,49 +1,62 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import Full from "../components/Full/";
+import FullText from "../components/FullText/";
+import FullMini from "../components/FullMini";
+import Navbar from "../components/Navbar";
+import Button from "../components/Button";
+// import Hero from "../components/Hero";
+// import Container from "../components/Container";
+// import Row from "../components/Row";
+// import Col from "../components/Col";
 
-class Landing extends Component {
-  render() {
-    return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="col s12 center-align">
-            <h4>
-              <b>Build</b> a login/auth app with the{" "}
-              <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
-              scratch
-            </h4>
-            <p className="flow-text grey-text text-darken-1">
-              Create a (minimal) full-stack app with user authentication via
-              passport and JWTs
-            </p>
-            <br />
-            <Link
-              to="/register"
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px"
-              }}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Register
-            </Link>
-            <Link
-              to="/login"
-              style={{
-                marginLeft: "2rem",
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px"
-              }}
-              className="btn btn-large waves-effect white hoverable black-text"
-            >
-              Log In
-            </Link>
-          </div>
-        </div>
+function Landing() {
+return (
+  <div className="homeBody">
+    <Navbar />
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="/">Evergarden</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" id="nav-active" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Register</a>
+          </li>
+        </ul>
       </div>
-    );
-  }
+    </nav>
+    <Full>
+      <div className="textBody">
+        <FullText>
+          The gift that
+          <br /> keeps on giving
+        </FullText>
+        <FullMini>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
+          leo vehicula, congue dolor in, pretium enim. Vivamus nec ultrices
+          lacus.
+        </FullMini>
+        <a href="/signup">
+          <Button>Get Started</Button>
+        </a>
+      </div>
+      <div className="calenderSVG">
+        <img src="https://i.imgur.com/gvjdBwa.png" alt="It's a cool SVG" />
+      </div>
+      <div className="homeImage" />
+      <div className="flowerSVG">
+        <img src="https://i.imgur.com/y3yh4g7.png" alt="It's a flower" />
+      </div>
+    </Full>
+  </div>
+);
 }
+
 export default Landing;

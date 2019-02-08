@@ -1,0 +1,28 @@
+.fullText {
+  font-size: 3.75em;
+  font-weight: bold;
+  margin-bottom: 4%;
+  padding: 0;
+  line-height: 85%;
+  word-wrap: break-word;
+  /* align-self: auto; */
+}
+
+/* Medium screens */
+@media all and (max-width: 1024px) {
+  .fullText {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    margin: 17.5% 0 0 0;
+    margin-top: 7%;
+    
+  }
+}
+
+/* Small screens */
+@media all and (min-width: 414px) and (max-width: 500px) {
+  .fullText {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+    font-size: 3em;
+  }
+}
