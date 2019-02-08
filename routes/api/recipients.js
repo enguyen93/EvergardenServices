@@ -49,7 +49,7 @@ router.post('/',
 router.delete('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Recipient.remove({ _id: req.params.id })
+    Recipient.findOneAndDelete({ _id: req.params.id })
       .then((recipient) => {
         res.json(recipient);
       })

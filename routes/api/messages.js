@@ -25,7 +25,7 @@ router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const newMessage = new Message({
-      recipient: req.recipient.id,
+      recipient: req.body.recipient,
       title: req.body.title,
       message: req.body.message,
       scheduleDate: req.body.scheduleDate
@@ -60,9 +60,9 @@ router.put("/:id",
 // @desc Delete an existing message
 // protected route
 router.delete("/:id",
-  passort.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Message.remove({ _id: req.params.id })
+    Message.findOneAndDelete({ _id: req.params.id })
       .then(message => {
         res.json(message);
       })
