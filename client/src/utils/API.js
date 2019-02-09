@@ -1,20 +1,42 @@
 import axios from "axios";
 
 export default {
-  // Get recipients
+
+  // recipient routes
+
+  // GET recipients
   getRecipients: () => {
-    return axios.get("/api/recipients");
+    return axios.get("/api/recipients/");
   },
-  // post a new recipient
+  // POST a new recipient
   postRecipients: (recipientData) => {
-    return axios.post("/api/recipients", recipientData);
+    return axios.post("/api/recipients/", recipientData);
   },
-  // delete a recipient by id
+  // DELETE a recipient by id
   deleteRecipients: (id) => {
-    return axios.delete("/api/recipients" + id);
+    return axios.delete("/api/recipients/" + id);
   },
-  // update an existing recipient
+  // UPDATE an existing recipient
   updateRecipients: (id) => {
-    return axios.put("/api/recipients")
+    return axios.put("/api/recipients/" + id);
+  },
+
+  // message routes
+
+  // GET all messages of selected recipient
+  getMessages: (recipientId) => {
+    return axios.get("/api/messages/" + recipientId);
+  },
+  // POST message for selected recipient
+  postMessages: (messageData) => {
+    return axios.post("/api/messages/", messageData);
+  },
+  // DELETE a message by id
+  deleteMessages: (id) => {
+    return axios.delete("/api/messages/" + id);
+  },
+  // UPDATE an existing message
+  updateMessages: (id) => {
+    return axios.put("/api/messages/" + id);
   }
-}
+};
