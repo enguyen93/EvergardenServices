@@ -68,9 +68,6 @@ class Register extends Component {
             </ul>
           </div>
         </nav>
-        <div className="flowerSVG">
-          <img src="https://i.imgur.com/y3yh4g7.png" alt="It's a flower" />
-        </div>
       <Full>
         <div className="flowerSVG">
           <img src="https://i.imgur.com/y3yh4g7.png" alt="It's a flower" />
@@ -88,11 +85,11 @@ class Register extends Component {
                 error={errors.name}
                 id="name"
                 type="text"
-                className={classnames("", {
+                placeholder="Name"
+                className={classnames("firstNameInput", {
                   invalid: errors.name
                 })}
               />
-              <label htmlFor="name">Name</label>
               <span className="red-text">{errors.name}</span>
             </div>
             <div className="formBoxTwo">
@@ -102,11 +99,11 @@ class Register extends Component {
                 error={errors.email}
                 id="email"
                 type="email"
-                className={classnames("", {
+                placeholder="Email"
+                className={classnames("emailInput", {
                   invalid: errors.email
                 })}
               />
-              <label htmlFor="email">Email</label>
               <span className="red-text">{errors.email}</span>
             </div>
             <div className="formBoxTwo">
@@ -116,11 +113,11 @@ class Register extends Component {
                 error={errors.password}
                 id="password"
                 type="password"
-                className={classnames("", {
+                placeholder="Password"
+                className={classnames("formInputs", {
                   invalid: errors.password
                 })}
               />
-              <label htmlFor="password">Password</label>
               <span className="red-text">{errors.password}</span>
             </div>
             <div className="formBoxTwo">
@@ -130,11 +127,11 @@ class Register extends Component {
                 error={errors.password2}
                 id="password2"
                 type="password"
-                className={classnames("", {
+                placeholder="Confirm Password"
+                className={classnames("formInputs", {
                   invalid: errors.password2
                 })}
               />
-              <label htmlFor="password2">Confirm Password</label>
               <span className="red-text">{errors.password2}</span>
             </div>
             <div className="formBoxTwo" style={{ paddingLeft: "11.250px" }}>
