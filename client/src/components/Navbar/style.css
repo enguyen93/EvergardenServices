@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.navbar {
+  display: none!important;
+}
+
+.navbarMain {
+  margin: 0;
+  padding: 5px;
+  width: 100%;
+  background-color: purple 0;
+  font-family: 'Montserrat', sans-serif;
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.navbarMain .navbarMain-brand {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2em;
+  color: white;
+  align-self: flex-start;
+  margin: 0 0 0 10%;
+}
+
+
+.navbarMain .navbar-list {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.navbarMain .navbar-list .nav-item {
+  margin:  0 15px;
+  font-size: 1.25em;
+  /* font-weight: bold; */
+}
+
+.navbarMain .navbar-list .nav-item .nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+.navbarMain .navbar-list .nav-item .nav-link:hover {
+  color: aqua;
+}
+/* ////////// */
+/* LOGIN PAGE */
+/* ////////// */
+
+.loginBody .navbarMain {
+  justify-content: flex-end;
+}
+
+.loginBody .navbarMain .navbarMain-brand {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.75em;
+  color: black;
+  display: none;
+  /* margin: 0 50% 0 0; */
+}
+
+.loginBody .navbarMain .navbar-list .nav-item .nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.loginBody .navbarMain .navbar-list .nav-item .nav-link:hover {
+  color: aqua;
+}
+
+.loginBody .navbarMain .navbar-list .nav-item {
+  margin:  0 15px;
+  font-size: 1.25em;
+  /* font-weight: bold; */
+  /* font-weight: bold; */
+}
+
+/* /////////// */
+/* SIGNUP PAGE */
+/* /////////// */
+
+.signUpBody .navbarMain {
+  justify-content: flex-end;
+}
+
+.signUpBody .navbarMain .navbarMain-brand {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25em;
+  color: black;
+  display: none;
+  /* margin: 0 50% 0 0; */
+}
+
+.signUpBody .navbarMain .navbar-list .nav-item .nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.signUpBody .navbarMain .navbar-list .nav-item .nav-link:hover {
+  color: aqua;
+}
+
+.signUpBody .navbarMain .navbar-list .nav-item {
+  margin:  0 15px;
+  font-size: 1.25em;
+  /* font-weight: bold; */
+  /* font-weight: bold; */
+}
+
+
+/* Medium screens */
+@media all and (max-width: 1024px) {
+  .navbarMain {
+    justify-content: space-between;
+    display: none;
+  }
+  .navbar {
+    display: block!important;
+    color: white!important;
+    background-color: white 0!important;
+    padding: 0;
+  }
+
+  .navbar-brand {
+    color: white!important;
+    padding: 3%;
+    font-weight: 600;
+    font-size: 1.5em;
+  }
+
+
+  .navbar-nav {
+    background-color: #8C60DB!important;
+    width: 100%!important;
+    margin: 0!important;
+    padding: 2% 0 2% 3%;
+  }
+
+  #nav-active {
+    color: white!important;
+    font-weight: 650;
+  }
+
+  .nav-link {
+    color: rgb(199, 199, 199)!important;
+    font-size: 1.05em;
+    font-weight: 600;
+  }
+
+  .navbar-toggler {
+    /* font-weight: bold!important; */
+    border: none!important;
+    position: fixed;
+    top: 2.5%;
+    left: 90%;
+  }
+
+  div.signUpBody .navbar-brand {
+    color: black!important;
+  }
+
+  div.loginBody .navbar-brand {
+  color: black!important;
+  }
+
+  .loginBody .navbar .navbar-nav {
+    background-color: white!important;
+  }
+
+  .signUpBody .navbar-nav {
+    background-color: white!important;
+  }
+
+  .loginBody #nav-active {
+    color: black!important;
+    font-weight: 650;
+  }
+
+  .signUpBody #nav-active {
+    color: black!important;
+    font-weight: 650;
+  }
+
+}
+
+/* Small screens */
+@media all and (min-width: 414px) and (max-width: 500px) {
+  .navbarMain {
+    /* flex-direction: column; */
+  }
+
+  .navbar-toggler {
+    /* font-weight: bold!important; */
+    border: none!important;
+    position: fixed;
+    top: 1.5%;
+    left: 83.5%;
+  }
+}

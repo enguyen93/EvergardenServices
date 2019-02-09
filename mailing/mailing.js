@@ -4,6 +4,7 @@
 
 var   mongoose = require('mongoose'),
       Recipient = mongoose.model('Recipient'),
+      Message = mongoose.model('Message')
       mailgun_api = process.env.MAILGUN_APIKEY,
       mailgun_domain = process.env.MAILGUN_DOMAIN,
       Mailgun = require('mailgun-js'),

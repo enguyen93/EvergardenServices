@@ -17,5 +17,8 @@ const RecipientSchema = new Schema({
     type: String,
     required: true
   }
+
 });
 module.exports = Recipient = mongoose.model('recipients', RecipientSchema);
+//Putting a messages array into the Recipient model instead of having a separate table of messages
+//
