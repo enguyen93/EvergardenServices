@@ -80,6 +80,7 @@
     border-radius: 5px;
     padding: 2%;
     border: 1px solid rgb(224, 224, 224);
+    width: 25em;
 }
 
 ::placeholder {
@@ -136,6 +137,14 @@
     .signUpHeader {
         font-size: 1em;
     }
+
+    .formInputs,
+    .firstNameInput,
+    .lastNameInput,
+    .emailInput,
+    .signPassInput {
+        width: 20em;
+    }
 }
 
 @media all and (max-width: 414px) {
@@ -143,6 +152,15 @@
         top: 12.5%;
         left: 10%;
         width: 80%;
+    }
+
+    
+    .formInputs,
+    .firstNameInput,
+    .lastNameInput,
+    .emailInput,
+    .signPassInput {
+        width: 15em;
     }
 
     .signUpHeader h1 {
