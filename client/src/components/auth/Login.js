@@ -48,25 +48,6 @@ class Login extends Component {
     return (
       <div className="loginBody">
         <Navbar />
-        <nav class="navbar fixed-top navbar-expand-lg bg-light navbar-light">
-          <Link class="navbar-brand" to="/">Evergarden</Link>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <Link class="nav-link" to="/">Home <span class="sr-only">(current)</span></Link>
-              </li>
-              <li class="nav-item active">
-                <Link class="nav-link" id="nav-active" to="/login">Login</Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/signup">Register</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
         <Full>
           <div className="flowerSVG">
             <img src="https://i.imgur.com/y3yh4g7.png" alt="It's a flower" />
@@ -74,67 +55,55 @@ class Login extends Component {
           <FormWrapper>
             <img className="testFlower" src="https://i.imgur.com/y3yh4g7.png" alt="It's a flower" />
             <div className="loginHeader">
-                  <p>Need a Evergarden account? <Link to="/register">Create an account</Link></p>
-                </div>
-            <div className="container">
-              <div style={{ marginTop: "4rem" }} className="row">
-                <div className="col s8 offset-s2">
-
-                  <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                    <h4>
-                      <b>Login</b> below
-              </h4>
-
-                  </div>
-                  <form noValidate onSubmit={this.onSubmit}>
-                    <div className="input-field col s12 formInputs">
-                      <input
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                        id="email"
-                        type="email"
-                        className={classnames("", {
-                          invalid: errors.email || errors.emailnotfound
-                        })}
-                 
-                        
-                      />
-                      <label htmlFor="email">Email</label>
-                      <span className="red-text">
-                        {errors.email}
-                        {errors.emailnotfound}
-                      </span>
-                    </div>
-                    <div className="input-field col s12 formInputs">
-                      <input
-                        onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                        id="password"
-                        type="password"
-                        className={classnames("", {
-                          invalid: errors.password || errors.passwordincorrect
-                        })}
-                      />
-                      <label htmlFor="password">Password</label>
-                      <span className="red-text">
-                        {errors.password}
-                        {errors.passwordincorrect}
-                      </span>
-                    </div>
-                    <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                      <button
-                        type="submit"
-                        className="formButton"
-                      >
-                        Login
-                </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
+              <p>Need an Evergarden account? <Link to="/register">Create an account</Link></p>
             </div>
+
+            <form noValidate onSubmit={this.onSubmit}>
+              <div className="input-field">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.email}
+                  error={errors.email}
+                  id="email"
+                  type="email"
+                  className= {classnames("formInputs", {
+                    invalid: errors.email || errors.emailnotfound
+                  })}
+                />
+
+                <label htmlFor="email">Email</label>
+                <span className="red-text">
+                  {errors.email}
+                  {errors.emailnotfound}
+                </span>
+              </div>
+              <div className="input-field">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.password}
+                  error={errors.password}
+                  id="password"
+                  type="password"
+                  className={classnames("", {
+                    invalid: errors.password || errors.passwordincorrect
+                  })}
+                />
+
+                <label htmlFor="password">Password</label>
+                <span className="red-text">
+                  {errors.password}
+                  {errors.passwordincorrect}
+                </span>
+              </div>
+              <div style={{ paddingLeft: "11.250px" }}>
+                <button
+                  type="submit"
+                  className="formButton"
+                >
+                  Login
+                </button>
+              </div>
+            </form>
           </FormWrapper>
         </Full>
       </div>
