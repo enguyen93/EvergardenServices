@@ -7,6 +7,9 @@ class Dashboard extends Component {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+  
+
   render() {
     const { user } = this.props.auth;
     return (
