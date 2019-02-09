@@ -1,0 +1,209 @@
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: url(https://i.imgur.com/pzDvxIN.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.full .textBody {
+  display: flex;
+  flex-flow: column wrap;
+  /* align-items: center; */
+  justify-content: flex-end;
+  align-content: space-around;
+  color: white;
+  width: 25%;
+  margin: 10% 0 0 20%;
+}
+
+div.loginBody {
+  background: url(https://i.imgur.com/MH4C7z5.png);
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 3;
+  /* position: relative; */
+  height: 100vh;
+}
+
+div.loginBody .full {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-content: space-around;
+  flex-flow: column wrap;
+  color: white;
+}
+
+div.signUpBody {
+  background: url(https://i.imgur.com/MH4C7z5.png);
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 3;
+  /* position: relative; */
+  height: 100vh;
+}
+
+div.signUpBody .full {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-content: space-around;
+  flex-flow: column wrap;
+  color: white;
+}
+
+
+.flowerSVG {
+  position: fixed;
+  top: 32.5%;
+  left: -9%;
+  /* transform: scale(1.15) */
+}
+
+.flowerSVG img {
+  height: auto;
+  width: 100%;
+}
+
+.homeBody .flowerSVG {
+  display: none;
+}
+
+.calenderSVG {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  /* transform: scale(1); */
+  -webkit-animation-name: calender; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+  animation-name: calender;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+
+}
+
+.calenderSVG img {
+  height: auto;
+  width: 100%;
+}
+
+@keyframes calender {
+  0%   {left:50%; top:6%;}
+  25%  {left:50%; top:4.5%;}
+  50%  {left:50%; top:6%;}
+  75%  {left:50%; top:4.5%;}
+  100% {left:50%; top:6%;}
+}
+
+
+
+/* Medium screens */
+@media all and (max-width: 1024px) {
+  body {
+    background: url(https://i.imgur.com/TfvYLth.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow-x: hidden;
+  }
+
+  .full .textBody{
+    /* margin: 10% 0; */
+    /* width: 80%; */
+    position: absolute;
+    top: 10%;
+    flex-wrap: column wrap;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .full {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    align-items: center;
+  }
+
+  .full .textBody .fullText {
+    text-align: center;
+  }
+
+  .full .textBody .fullMini {
+    margin: 5% 0;
+  }
+
+  .calenderSVG {
+    display: none;
+  }
+
+  .full .textBody .buttonMain {
+    position: unset;
+    align-self: center;
+  }
+
+  .full .flowerSVG {
+  display: unset;
+  position: fixed;
+  top: 33%;
+  left: -33%;
+  transform: scale(0.65)
+}
+
+div.signUpBody {
+  background: none;
+  background-color: white;
+}
+
+div.loginBody {
+  background: none;
+  background-color: white;
+}
+
+div.signUpBody .full {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-content: space-around;
+  flex-flow: column wrap;
+  color: white;
+}
+
+}
+
+/* Small screens */
+@media all and (min-width: 414px) and (max-width: 500px) {
+  body {
+    background: url(https://i.imgur.com/iS7VoUV.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .full {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+
+  .full .flowerSVG {
+  display: unset;
+  position: fixed;
+  top: 26.5%;
+  left: -68%;
+  transform: scale(0.55)
+  }
+}
+
