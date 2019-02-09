@@ -4,6 +4,8 @@ import FullText from "../FullText/";
 import FullMini from "../FullMini";
 import Navbar from "../Navbar";
 import Button from "../Button";
+import { Link } from "react-router-dom";
+
 // import Hero from "../components/Hero";
 // import Container from "../components/Container";
 // import Row from "../components/Row";
@@ -43,9 +45,9 @@ return (
           leo vehicula, congue dolor in, pretium enim. Vivamus nec ultrices
           lacus.
         </FullMini>
-        <a href="/signup">
+        <Link to="/register">
           <Button>Get Started</Button>
-        </a>
+        </Link>
       </div>
       <div className="calenderSVG">
         <img src="https://i.imgur.com/gvjdBwa.png" alt="It's a cool SVG" />

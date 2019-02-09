@@ -85,12 +85,12 @@ class Login extends Component {
                   error={errors.email}
                   id="email"
                   type="email"
+                  placeholder="Email"
                   className= {classnames("formInputs", {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
 
-                <label htmlFor="email">Email</label>
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
@@ -103,12 +103,12 @@ class Login extends Component {
                   error={errors.password}
                   id="password"
                   type="password"
-                  className={classnames("", {
+                  placeholder="Password"
+                  className={classnames("formInputs", {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
 
-                <label htmlFor="password">Password</label>
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}
