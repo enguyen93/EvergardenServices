@@ -8,10 +8,13 @@ var   mongoose = require('mongoose'),
       mailgun_api = process.env.MAILGUN_APIKEY,
       mailgun_domain = process.env.MAILGUN_DOMAIN,
       Mailgun = require('mailgun-js'),
-      schedule = require('node-schedule'),
+      cron = require("node-cron"),
       Q = require('q'),
       moment = require('moment');
-      require('dotenv').config()
+      express = require("express");
+      require('dotenv').config();
+      app=express();
+
       
       
 
@@ -21,7 +24,7 @@ var mailRecipients = mailDay => {
   // setup promises
   var deffered = Q.defer();
   // find recipients with a scheduleDate that match today
-  Recipient.find().where('scheduleDate').equals(mailDay).exec(    
+  Message.find().where('scheduleDate').equals(mailDay).exec(    
     (err, recipient) => {
     var recipients = [];
     // handle error
@@ -55,14 +58,11 @@ var mailCreator = recipients => {
   return mailing;
 }
 
-var mailScheduler = job => {
-  // set rules for scheduler. Every day, 8AM 
-  var rule = new schedule.RecurrenceRule();
-      rule.dayOfWeek = [new schedule.Range(0, 6)];
-      rule.hour = 8;
-      rule.minute = 00;
-  schedule.scheduleJob(rule, job);
-};
+var cronJob = cron.schedule('1 * * * * *', () => {
+  console.log('searching for mail once a minute');
+});
+
+
 
 // function to send user email given template and subject     
 var mailSender = (recipientEmail, text) => {
@@ -101,7 +101,8 @@ var mailDay = moment().format("MMM Do YYYY");
 
 // call the scheduler, which takes a function
 // and pass in our mailing sequence
-mailScheduler(() => {
+
+cronJob(() => {
   // find users with preferences set for now
   mailRecipients(mailDay)
     .then(function (recipients) {
@@ -120,3 +121,5 @@ mailScheduler(() => {
       }
   })
 });
+
+app.listen(3128);
