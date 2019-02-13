@@ -1,0 +1,17 @@
+.AddRecipientButton {
+  background: none;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  margin: 30px;
+  font-weight:bold;
+  font-size: 23px;
+  
+
+}
+
+/* .AddRecipientButton:hover {
+  text-decoration-line: underline;
+  text-decoration-color: pink;
+} */
+
