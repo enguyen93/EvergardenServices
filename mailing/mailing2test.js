@@ -1,11 +1,14 @@
-const   mongoose = require("mongoose"),
-      Recipient = mongoose.model("Recipient"),
-      Message = mongoose.model("Message"),
+const mongoose = require("mongoose"),
       cron = require("node-cron"),
       moment = require("moment");
       nodemailer = require("nodemailer")
+      express = require("express");
 
-var today = moment().format('L');
+
+const Recipient = require('../models/Recipient');
+const Message = require('../models/Message');
+var app = express();
+
 
 var transporter = nodemailer.createTransport({
     service: "gmail", 
@@ -15,64 +18,58 @@ var transporter = nodemailer.createTransport({
     }
 })
 
-var mailRecipients = (today, mailSetup) => {
-    console.log("Searching DB for recipients with messages to go out today");
-    messageArr = [];
-    Message.find().where("scheduleDate").equals(today).exec(
-        (err, message) => {
-            if (err) {
-                throw (err);
-            } else {
-                for (var i=0; i < message.length; i++) {
-                   messageArr.push(message[i]) 
-                }
-            }
-        }
-    )
-    console.log(messageArr);
-    mailSetup(messageArr);
-    
+const findRecipientEmail = (messages) => {
+    const mailInformationList = []
+    const numberOfMessages = messages.length
+    messages.map((message, i) => {
+        Recipient.findById(message.recipient)
+            .then(recipient => {
+                if (numberOfMessages === i + 1) {
+                    const mailInfo = {
+                        from: "evergardenservicesemail@gmail.com",
+                        to: recipient.email,
+                        subject: "You have a new message from from Evergarden Services",
+                        text: message.message
+                    }
+                    mailInformationList.push(mailInfo)
+                    sendMail(mailInformationList)
+                  } else {
+                    const mailInfo = {
+                        from: "evergardenservicesemail@gmail.com",
+                        to: recipient.email,
+                        subject: "You have a new message from from Evergarden Services",
+                        text: message.message
+                    }
+                    mailInformationList.push(mailInfo)
+                  }
+            })
+    })
 }
 
-var mailSetup = (messageArr, sendThatMail) => {
-    var mailing = []
-    for (var i = 0; i <= messageArr.length; i++) {
-        Recipient.findById(messageArr[i].Recipient, "email", (err,recipientEmail) => {
-            if (err) {
-                throw (err);
-            } else {
-                return recipientEmail
-            };
-        });
-        var mailOptions = {
-            from: "evergardenservicesemail@gmail.com",
-            to: recipientEmail,
-            subject: "You have a new message from from Evergarden Services",
-            text: messageArr[i].message
-        }
-        mailing.push(mailOptions)
-    }
-    console.log(mailing);
-    sendThatMail(mailing);
-}
-
-var sendThatMail = mailing => {
-    for (var i = 0; i<=mailing.length; i++) {
-        transporter.sendMail(mailing[i], function(err, info){
+const sendMail = (mailInformationList) => {
+    mailInformationList.map((mailInformation => {
+        transporter.sendMail(mailInformation, function(err, info){
             if (err){
                 console.log(err);
-            } else {
-                console.log(info);
             }
         })
-    }
+    }))
+}
+
+const findMailByScheduledDate = () => {
+    const today = moment().format('L');
+    console.log("Initializing email flow");
+    Message.find({ scheduleDate: today })
+        .then(messages => {
+            findRecipientEmail(messages)
+        })
+        .catch(err => console.log(err))    
 }
 
 cron.schedule('1 * * * * *', () => {
-    console.log('searching for mail once a minute');
-    mailRecipients(today, mailSetup(messageArr, sendThatMail(mailing)
-    )
-    );
+    findMailByScheduledDate()
 }) 
-    
 
+
+
+// module.exports = Mail = mailSender()
