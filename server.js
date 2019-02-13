@@ -7,6 +7,7 @@ const path = require("path");
 const users = require("./routes/api/users");
 const recipients = require("./routes/api/recipients");
 const messages = require("./routes/api/messages");
+const cron = require("node-cron")
 // Bodyparser middleware
 app.use(
   express.urlencoded({
@@ -29,6 +30,7 @@ mongoose
 app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
+require("./mailing/mailing2test")
 // Routes
 app.use("/api/users", users);
 app.use("/api/recipients", recipients);
