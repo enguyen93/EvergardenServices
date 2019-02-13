@@ -24,7 +24,6 @@
     "express": "^4.16.4",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.4.0",
-    "mailgun-js": "^0.22.0",
     "moment": "^2.24.0",
     "mongoose": "^5.4.5",
     "node-cron": "^2.0.3",
@@ -32,7 +31,6 @@
     "nodemon": "^1.18.9",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "q": "^1.5.1",
     "validator": "^10.11.0"
   }
 }
