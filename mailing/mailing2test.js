@@ -68,4 +68,3 @@ cron.schedule('1 * * * * *', () => {
 
 
 
-// module.exports = Mail = mailSender()
