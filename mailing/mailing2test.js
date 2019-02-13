@@ -1,16 +1,12 @@
-const mongoose = require("mongoose"),
-      cron = require("node-cron"),
+const cron = require("node-cron"),
       moment = require("moment");
       nodemailer = require("nodemailer")
-      express = require("express");
-
 
 const Recipient = require('../models/Recipient');
 const Message = require('../models/Message');
-var app = express();
 
 
-var transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
     service: "gmail", 
     auth: {
         user: "evergardenservicesemail@gmail.com",
