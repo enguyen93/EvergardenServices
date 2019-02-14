@@ -47,7 +47,7 @@ class Login extends Component {
     const { errors } = this.state;
     return (
       <div className="loginBody">
-        {/* <Navbar /> */}
+        <Navbar />
         <nav className="navbar fixed-top navbar-expand-lg bg-light navbar-light">
             <Link className="navbar-brand" to="/">Evergarden</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
