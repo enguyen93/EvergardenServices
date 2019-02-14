@@ -1,0 +1,5 @@
+.main-message-content {
+  grid-column: 3/6;
+  grid-row: 3/12;
+  border: 2px solid grey;
+}

@@ -192,9 +192,9 @@
 
 /* Small screens */
 @media all and (min-width: 414px) and (max-width: 500px) {
-  .navbarMain {
-    /* flex-direction: column; */
-  }
+  /* .navbarMain {
+    flex-direction: column;
+  } */
 
   .navbar-toggler {
     /* font-weight: bold!important; */
