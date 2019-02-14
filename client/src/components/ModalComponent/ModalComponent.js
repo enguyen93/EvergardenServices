@@ -8,7 +8,8 @@ export default class ModalComponent extends React.Component {
     this.state = { modal: false, name: '', email: '' };
 
     this.toggle = this.toggle.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeName = this.handleChangeName.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,7 +18,7 @@ export default class ModalComponent extends React.Component {
       modal: !this.state.modal
     });
   }
-  handleChange(event) {
+  handleChangeName(event) {
     this.setState({ name: event.target.value });
   }
   handleChangeEmail(event) {
