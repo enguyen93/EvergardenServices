@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 function Home() {
 return (
   <div className="homeBody">
-    {/* <Navbar /> */}
+    <Navbar />
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark">
       <a className="navbar-brand" href="/">Evergarden</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
