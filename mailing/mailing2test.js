@@ -55,16 +55,17 @@ const sendMail = (mailInformationList) => {
 const findMailByScheduledDate = () => {
     const today = moment().format('L');
     console.log("Initializing email flow");
-    Message.find({ scheduleDate: today })
+    Message.find({ scheduleDate: today, isSent: false })
         .then(messages => {
+            Message.updateOne({ scheduleDate: today, isSent:false }, { $set: { isSent: true } })
             findRecipientEmail(messages)
         })
         .catch(err => console.log(err))    
 }
 
-// cron.schedule('1 * * * * *', () => {
-//     findMailByScheduledDate()
-// }) 
+cron.schedule('1 * * * * *', () => {
+    findMailByScheduledDate()
+}) 
 
 
 

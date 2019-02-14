@@ -20,6 +20,11 @@ const MessageSchema = new Schema({
   scheduleDate: {
     type: String,
     required: true
+  },
+  isSent: {
+    type: Boolean,
+    required: true,
+    default: false,
   }
 });
 module.exports = Message = mongoose.model('messages', MessageSchema);
