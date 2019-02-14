@@ -19,12 +19,12 @@ class Login extends Component {
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("dashboard");
     }
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard"); // push user to dashboard when they login
+      this.props.history.push("dashboard"); // push user to dashboard when they login
     }
     if (nextProps.errors) {
       this.setState({
@@ -47,7 +47,7 @@ class Login extends Component {
     const { errors } = this.state;
     return (
       <div className="loginBody">
-        <Navbar />
+        {/* <Navbar /> */}
         <nav className="navbar fixed-top navbar-expand-lg bg-light navbar-light">
             <Link className="navbar-brand" to="/">Evergarden</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

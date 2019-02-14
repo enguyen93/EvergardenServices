@@ -19,3 +19,9 @@
     background-color: aqua;
     transition: 0.4s;
 }
+
+.Dashboard {
+    display:grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(24,1fr);
+  }
