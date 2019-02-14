@@ -30,6 +30,7 @@ export default class MessageForm extends Component {
   onSubmit(e) {
     e.preventDefault();
     const newMessage = {
+      recipient: this.props.recipientId,
       title: this.state.title,
       message: this.state.message,
       scheduleDate: this.state.scheduleDate
@@ -37,7 +38,7 @@ export default class MessageForm extends Component {
     API.postMessages(newMessage)
       .then(res => {
         // console.log(res.data);
-        // console.log(newMessage);
+        console.log(newMessage);
       })
       .catch(err => console.log(err));
   }

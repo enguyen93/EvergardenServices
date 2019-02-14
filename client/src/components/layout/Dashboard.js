@@ -20,7 +20,8 @@ class Dashboard extends Component {
     Messages: '',
     title: '',
     message: '',
-    scheduleDate: ''
+    scheduleDate: '',
+    recipientId: ''
   }
 
   componentDidMount() {
@@ -30,7 +31,7 @@ class Dashboard extends Component {
   loadRecipients = () => {
     API.getRecipients()
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
       
         this.setState({
           Recipients: res.data,
@@ -45,12 +46,13 @@ class Dashboard extends Component {
   loadMessages = (_id) => {
     API.getMessages(_id)
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         this.setState({
           Messages: res.data,
           title:'',
           message: '',
-          scheduleDate: ''
+          scheduleDate: '',
+          recipientId: _id
         })
       })
       .catch(err => console.log(err));
@@ -69,6 +71,7 @@ class Dashboard extends Component {
           getMessages={this.loadMessages}
         />
         {this.state.Messages && <MainContent
+          recipientId={this.state.recipientId}
           Messages={this.state.Messages}
           title={this.state.title}
           body={this.state.message}
