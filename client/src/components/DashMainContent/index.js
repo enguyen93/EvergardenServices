@@ -12,6 +12,7 @@ class MainContent extends Component {
           title={this.props.title}
           body={this.props.message}
           date={this.props.scheduleDate}
+          recipientId={this.props.recipientId}
         />
         <MessageList
           Messages={this.props.Messages}
