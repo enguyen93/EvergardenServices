@@ -48,7 +48,7 @@ class Register extends Component {
   render() {
     const { errors } = this.state;
     return <div className="signUpBody">
-      <Navbar />
+      {/* <Navbar /> */}
       <nav className="navbar fixed-top navbar-expand-lg bg-light navbar-light">
           <a className="navbar-brand" href="/">Evergarden</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
