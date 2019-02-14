@@ -4,11 +4,11 @@ import './style.css'
 
 class RecipientCard extends Component {
   render() {
-    const { name, Rid, getMessages } = this.props.recipient;
+    const { name, _id } = this.props.recipient;
     return (
       <div>
         <Card
-          onClick={getMessages()}
+          onClick={() => this.props.getMessages(_id)}
 
         >
           <CardTitle

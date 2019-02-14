@@ -14,7 +14,7 @@ class MessageList extends Component {
             <div className='message-list'>
             {this.props.Messages.map(message => (
               <MessageCard 
-                message={message}
+                message={message.message}
                 title={message.title}
                 body={message.body}
                 key={message.id}

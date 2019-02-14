@@ -38,7 +38,7 @@ class RecipientList extends Component {
   // }
 
   render() {
-
+    console.log(this.props)
     return (
       this.props.Recipients.map(recipient => (
         <RecipientCard
@@ -46,8 +46,7 @@ class RecipientList extends Component {
           recipient={recipient}
           name={recipient.name}
           key={recipient.id}
-          getMessages={recipient.getMessages}
-          Rid={recipient.Rid}
+          getMessages={this.props.getMessages}
         />
       ))
     )

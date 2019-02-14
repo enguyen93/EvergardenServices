@@ -13,7 +13,7 @@ class Sidebar extends Component {
           Recipients={this.props.Recipients}
           name={this.props.name}
           email={this.props.email}
-          getMessages={this.props.loadMessages}
+          getMessages={this.props.getMessages}
           Rid={this.props.Rid}
         />
       </div>

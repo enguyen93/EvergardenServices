@@ -10,8 +10,8 @@ class MessageCard extends Component {
           <ListGroupItem
             
           >
-            <ListGroupItemHeading>Some title</ListGroupItemHeading>
-            <ListGroupItemText>nkjbnwekjcnkjwfbnfjkwbfkjwehfkjwhfkwjhfkwjvhwjdkvbwkjvbw wdkjbcjwbcjw  hbckjwbcj s huiwbvcsc a message</ListGroupItemText>
+            <ListGroupItemHeading>{this.props.title}</ListGroupItemHeading>
+            <ListGroupItemText>{this.props.message}</ListGroupItemText>
           </ListGroupItem>
         </ListGroup>
       </div>
