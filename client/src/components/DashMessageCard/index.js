@@ -7,7 +7,9 @@ class MessageCard extends Component {
     return (
       <div className="MessageCard">
         <ListGroup>
-          <ListGroupItem>
+          <ListGroupItem
+            
+          >
             <ListGroupItemHeading>Some title</ListGroupItemHeading>
             <ListGroupItemText>nkjbnwekjcnkjwfbnfjkwbfkjwehfkjwhfkwjhfkwjvhwjdkvbwkjvbw wdkjbcjwbcjw  hbckjwbcj s huiwbvcsc a message</ListGroupItemText>
           </ListGroupItem>

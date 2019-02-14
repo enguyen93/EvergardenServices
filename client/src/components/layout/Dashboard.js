@@ -15,7 +15,7 @@ class Dashboard extends Component {
     Recipients: [],
     name: '',
     email: '',
-
+    id: '',
     // Messages
     Messages: [],
     title: '',
@@ -23,18 +23,40 @@ class Dashboard extends Component {
     scheduleDate: ''
   }
 
+  componentDidMount() {
+    this.loadRecipients();
+    this.loadMessages();
+  }
   // loads all recipients of the current user to state
   loadRecipients = () => {
     API.getRecipients()
-      .then(res =>
+      .then(res => {
+        console.log(res.data)
+
         this.setState({
           Recipients: res.data,
-          name: ""
+          name: "",
+          id: res.data._id
         })
+      }
       )
       .catch(err => console.log(err));
+      
   };
 
+  loadMessages = () => {
+    API.getMessages()
+      .then(res => {
+        console.log(res.data)
+        this.setState({
+          Messages: res.data,
+          title:'',
+          message: '',
+          scheduleDate: ''
+        })
+      })
+      .catch(err => console.log(err));
+  }
   render() {
     return (
       <div className="Dashboard">
@@ -45,12 +67,14 @@ class Dashboard extends Component {
           Recipients={this.state.Recipients}
           name={this.state.name}
           email={this.state.email}
+          getMessages={this.loadMessages}
         />
         <MainContent
           Messages={this.state.Messages}
           title={this.state.title}
           body={this.state.message}
           date={this.state.scheduleDate}
+          key={this.state.id}
         />
       </div>
     );

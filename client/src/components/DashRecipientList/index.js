@@ -46,7 +46,7 @@ class RecipientList extends Component {
           recipient={recipient}
           name={recipient.name}
           key={recipient.id}
-        // onClick={this.onClick}
+          getMessages={recipient.getMessages}
         />
       ))
     )

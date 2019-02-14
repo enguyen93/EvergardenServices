@@ -9,7 +9,12 @@ class Sidebar extends Component {
     return (
       <div className="Sidebar">
         <AddRecipientbutton />
-        <RecipientList Recipients={this.props.Recipients} name={this.props.name} email={this.props.email} />
+        <RecipientList
+          Recipients={this.props.Recipients}
+          name={this.props.name}
+          email={this.props.email}
+          getMessages={this.props.loadMessages}
+        />
       </div>
 
     )

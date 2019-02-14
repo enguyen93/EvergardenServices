@@ -11,17 +11,18 @@ class MessageList extends Component {
         <Card>
           <CardHeader tag="h3">Featured</CardHeader>
           <CardBody>
-            <div className='message-list'>
-            this.props.Messages.map(message => (
+            {/* <div className='message-list'>
+            {this.props.Messages.map(message => (
               <MessageCard 
                 message={message}
                 title={message.title}
                 body={message.body}
                 key={message.id}
+                // getMessages={message.getMessages}
               />
-            ))
+            ))}
               
-            </div>
+            </div> */}
 
           </CardBody>
 

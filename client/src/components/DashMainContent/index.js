@@ -18,6 +18,7 @@ class MainContent extends Component {
           title={this.props.title}
           body={this.props.message}
           date={this.props.scheduleDate}
+          // getMessages={this.props.loadMessages}
         />
       </div>
     )

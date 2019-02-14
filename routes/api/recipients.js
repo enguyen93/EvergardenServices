@@ -11,6 +11,7 @@ const Recipient = require('../../models/Recipient');
 router.get('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
+    // console.log(req.user)
     Recipient.find({ user: req.user.id })
       .sort({ name: 1 })
       .then(recipient => res.json(recipient))
