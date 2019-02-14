@@ -55,6 +55,7 @@ class Dashboard extends Component {
       })
       .catch(err => console.log(err));
   }
+
   render() {
     return (
       <div className="Dashboard">
