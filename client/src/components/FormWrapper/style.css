@@ -13,9 +13,9 @@
 }
 
 .testFlower{
-    max-height: 175px;
+    max-height: 275px;
     width: auto;
-    margin: 5% 0;
+    /* margin: 5% 0; */
 }
 
 .signUpHeader,
