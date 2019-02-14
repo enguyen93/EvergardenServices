@@ -11,7 +11,7 @@ class MessageList extends Component {
         <Card>
           <CardHeader tag="h3">Featured</CardHeader>
           <CardBody>
-            {/* <div className='message-list'>
+            <div className='message-list'>
             {this.props.Messages.map(message => (
               <MessageCard 
                 message={message}
@@ -22,7 +22,7 @@ class MessageList extends Component {
               />
             ))}
               
-            </div> */}
+            </div>
 
           </CardBody>
 

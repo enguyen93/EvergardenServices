@@ -15,7 +15,7 @@ class Dashboard extends Component {
     Recipients: [],
     name: '',
     email: '',
-    id: '',
+    Rid: '',
     // Messages
     Messages: [],
     title: '',
@@ -36,7 +36,7 @@ class Dashboard extends Component {
         this.setState({
           Recipients: res.data,
           name: "",
-          id: res.data._id
+          Rid: res.data._id
         })
       }
       )
@@ -45,7 +45,7 @@ class Dashboard extends Component {
   };
 
   loadMessages = () => {
-    API.getMessages()
+    API.getMessages(this.state.Rid)
       .then(res => {
         console.log(res.data)
         this.setState({
@@ -68,6 +68,7 @@ class Dashboard extends Component {
           name={this.state.name}
           email={this.state.email}
           getMessages={this.loadMessages}
+          Rid={this.state.Rid}
         />
         <MainContent
           Messages={this.state.Messages}

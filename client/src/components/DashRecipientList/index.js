@@ -47,6 +47,7 @@ class RecipientList extends Component {
           name={recipient.name}
           key={recipient.id}
           getMessages={recipient.getMessages}
+          Rid={recipient.Rid}
         />
       ))
     )
