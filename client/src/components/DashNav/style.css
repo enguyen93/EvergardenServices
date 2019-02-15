@@ -1,4 +1,20 @@
-.Mynav{
+.Mynav {
   grid-column: 1/7;
   grid-row: 1/1;
+}
+
+.Logo-nav {
+  /* font-weight: bold; */
+  /* url(../../img/Evergarden_logo_V2.svg) */
+}
+
+#dashboard-logo {
+  height: 50px;
+  width: auto;
+}
+
+#welcome-user {
+  font-weight: bold;
+  color: #8c60da;
+  font-size: 18px;
 }

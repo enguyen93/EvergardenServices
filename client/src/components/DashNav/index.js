@@ -19,8 +19,17 @@ class MyNav extends Component {
     return (
       <div className="Mynav">
         <Navbar color="light" light expand='md'>
-          <NavbarBrand>Welcome {user.name.split(" ")[0]}</NavbarBrand>
+          <NavbarBrand
+            // className="Logo-nav"
+          >
+          <img id="dashboard-logo" src="https://i.imgur.com/CUZzM0n.png" />
+          </NavbarBrand>
           <Nav className='ml-auto'>
+            <NavItem>
+              <NavLink id="welcome-user">
+                Welcome {user.name.split(" ")[0]}
+              </NavLink>
+            </NavItem>
             <NavItem>
               <NavLink href='/'>Profile</NavLink>
             </NavItem>
