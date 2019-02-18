@@ -22,7 +22,7 @@ class MyNav extends Component {
           <NavbarBrand
             // className="Logo-nav"
           >
-          <img id="dashboard-logo" src="https://i.imgur.com/CUZzM0n.png" />
+          <img id="dashboard-logo" src="https://i.imgur.com/CUZzM0n.png" alt="logo" />
           </NavbarBrand>
           <Nav className='ml-auto'>
             <NavItem>
