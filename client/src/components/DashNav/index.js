@@ -31,7 +31,7 @@ class MyNav extends Component {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/'>Profile</NavLink>
+              <NavLink href='#'>Profile</NavLink>
             </NavItem>
             <NavItem>
               <NavLink

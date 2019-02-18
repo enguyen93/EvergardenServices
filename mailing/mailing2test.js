@@ -62,9 +62,9 @@ const findMailByScheduledDate = () => {
         .catch(err => console.log(err))    
 }
 
-// cron.schedule('1 * * * * *', () => {
-//     findMailByScheduledDate()
-// }) 
+cron.schedule('1 * * * * *', () => {
+    findMailByScheduledDate()
+}) 
 
 
 
