@@ -4,7 +4,11 @@
   display: none!important;
 }
 
-.navbarMain {
+.Mynav nav.navbar {
+  display: flex!important;
+}
+
+nav.navbarMain {
   margin: 0;
   padding: 5px;
   width: 100%;
@@ -18,7 +22,7 @@
   align-content: center;
 }
 
-.navbarMain .navbarMain-brand {
+nav.navbarMain .navbarMain-brand {
   text-decoration: none;
   font-weight: bold;
   font-size: 2em;
@@ -119,7 +123,7 @@
 @media all and (max-width: 1024px) {
   .navbarMain {
     justify-content: space-between;
-    display: none;
+    display: none!important;
   }
   .navbar {
     display: block!important;
@@ -128,6 +132,9 @@
     padding: 0;
   }
 
+  .Mynav .navbar .navbar-brand {
+    color: black!important;
+  }
   .navbar-brand {
     color: white!important;
     padding: 3%;

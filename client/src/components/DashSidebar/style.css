@@ -4,4 +4,10 @@
   max-height: 80%;
   grid-column: 1/2;
   grid-row: 2/25;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.Sidebar h1 {
+  text-align: center;
 }
