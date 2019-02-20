@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style.css';
+import './Dashboard.css';
 import API from '../../utils/API';
 
 import MyNav from '../DashNav'

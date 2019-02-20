@@ -46,7 +46,7 @@ export default class MessageForm extends Component {
   render() {
     return (
       <div className="message-form">
-        <Form  onSubmit={this.onSubmit}>
+        <Form onSubmit={this.onSubmit}>
           <Row form>
             <Col md={6}>
               <FormGroup>
@@ -76,14 +76,18 @@ export default class MessageForm extends Component {
             <Label for="message" />
             <Input
               className="message-box"
-              type="message"
+              type="textarea"
               name="message"
               placeholder="Your message here"
               value={this.state.message}
               onChange={this.handleChangeMessage}
             />
           </FormGroup>
-          <Button color="info" value="Submit">
+          <Button
+            color="info"
+            value="Submit"
+            className="submit-button"
+          >
             Submit
           </Button>
         </Form>
