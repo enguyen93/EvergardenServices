@@ -2,8 +2,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import API from '../../utils/API'
+import "./style.css";
 
-import './style.css'
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
@@ -47,9 +47,10 @@ export default class ModalComponent extends React.Component {
   render() {
     return (
 
-      <div>
-        {/* <h1>Add a new Recipient</h1> */}
-        <Button id="new-recipient-button" color="info" onClick={this.toggle}>+ Add Recipient</Button>
+      <div className="modalBody">
+        <h1>Add a new Recipient</h1>
+        <Button color="success" onClick={this.toggle}>+ Add Recipient</Button>
+
         <Modal isOpen={this.state.modal}>
           <form onSubmit={this.handleSubmit}>
             <ModalHeader>Add a new Recipient</ModalHeader>
