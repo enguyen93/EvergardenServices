@@ -74,8 +74,8 @@ class Register extends Component {
         </div>
         <FormWrapper>
           <div className="signUpHeader">
-            <h1>Express your feelings forever.</h1>
-            <p>Evergarden allows you to send custom message with dates.</p>
+            <h2>Express your feelings forever.</h2>
+            <h5>Evergarden allows you to send custom message with dates.</h5>
           </div>
           <form noValidate onSubmit={this.onSubmit}>
             <div className="signUpFormBox">

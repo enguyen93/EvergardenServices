@@ -8,20 +8,25 @@ class MessageList extends Component {
   render() {
     return (
       <div>
-        <Card>
-          <CardHeader tag="h3">Featured</CardHeader>
-          <CardBody>
+        <Card className="Card">
+          <CardHeader
+            tag="h3"
+            className="Active-Messages"
+          >
+            Featured
+          </CardHeader>
+          <CardBody className="Card-Body">
             <div className='message-list'>
-            {this.props.Messages.map(message => (
-              <MessageCard 
-                message={message.message}
-                title={message.title}
-                body={message.body}
-                key={message.id}
+              {this.props.Messages.map(message => (
+                <MessageCard
+                  message={message.message}
+                  title={message.title}
+                  body={message.body}
+                  key={message.id}
                 // getMessages={message.getMessages}
-              />
-            ))}
-              
+                />
+              ))}
+
             </div>
 
           </CardBody>

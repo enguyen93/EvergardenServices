@@ -73,6 +73,7 @@ class Login extends Component {
           </div>
           <FormWrapper>
             <img className="testFlower" src="https://i.imgur.com/ChzQnX6.png" alt="It's a flower" />
+
             <div className="loginHeader">
               <p>Need an Evergarden account? <Link to="/register">Create an account</Link></p>
             </div>

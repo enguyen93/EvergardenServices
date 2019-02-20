@@ -4,6 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import API from '../../utils/API'
 import "./style.css";
 
+
 export default class ModalComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -49,26 +50,27 @@ export default class ModalComponent extends React.Component {
       <div className="modalBody">
         <h1>Add a new Recipient</h1>
         <Button color="success" onClick={this.toggle}>+ Add Recipient</Button>
+
         <Modal isOpen={this.state.modal}>
           <form onSubmit={this.handleSubmit}>
             <ModalHeader>Add a new Recipient</ModalHeader>
             <ModalBody>
               <div className="row">
-                <div className="form-group col-md-4">
+                <div className="form-group col-md-12">
                   <label>Name:</label>
-                  <input type="text" value={this.state.name} onChange={this.handleChangeName} className="form-control" />
+                  <input type="text" value={this.state.name} onChange={this.handleChangeName} className="form-control modal-inputs" />
                 </div>
               </div>
               <div className="row">
-                <div className="form-group col-md-4">
+                <div className="form-group col-md-12">
                   <label>Email:</label>
-                  <input type="text" value={this.state.email} onChange={this.handleChangeEmail} className="form-control" />
+                  <input type="text" value={this.state.email} onChange={this.handleChangeEmail} className="form-control modal-inputs" />
                 </div>
               </div>
             </ModalBody>
             <ModalFooter>
-              <input type="submit" onClick={this.toggle} value="Submit" color="primary" className="btn btn-primary" />
-              <Button color="danger" onClick={this.toggle}>Cancel</Button>
+              <input id="modal-submit-button" type="submit" onClick={this.toggle} value="Submit" color="info" className="btn btn-primary" />
+              <Button id="modal-cancel-button" color="danger" onClick={this.toggle}>Cancel</Button>
             </ModalFooter>
           </form>
         </Modal>
