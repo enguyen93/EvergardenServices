@@ -1,0 +1,14 @@
+#new-recipient-button {
+  width: 100%;
+  background: #2facc9;
+}
+
+#modal-submit-button {
+  background: #2facc9;
+  border: none;
+}
+
+#modal-cancel-button {
+  background: #8c60da;
+  border: none;
+}

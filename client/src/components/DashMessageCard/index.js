@@ -7,11 +7,17 @@ class MessageCard extends Component {
     return (
       <div className="MessageCard">
         <ListGroup>
-          <ListGroupItem
-            
-          >
-            <ListGroupItemHeading>{this.props.title}</ListGroupItemHeading>
-            <ListGroupItemText>{this.props.message}</ListGroupItemText>
+          <ListGroupItem>
+            <ListGroupItemHeading
+              className='Message-Card-Title'
+            >
+              {this.props.title}
+            </ListGroupItemHeading>
+            <ListGroupItemText
+              className='Message-Card-Message'
+            >
+              {this.props.message}
+            </ListGroupItemText>
           </ListGroupItem>
         </ListGroup>
       </div>
