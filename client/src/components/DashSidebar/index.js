@@ -15,6 +15,8 @@ class Sidebar extends Component {
           email={this.props.email}
           getMessages={this.props.getMessages}
           Rid={this.props.Rid}
+          loadRecipients = {this.loadRecipients}
+
         />
       </div>
 

@@ -15,6 +15,7 @@ class RecipientList extends Component {
           name={recipient.name}
           key={recipient.id}
           getMessages={this.props.getMessages}
+          loadRecipients = {this.loadRecipients}
         />
       ))
     )
