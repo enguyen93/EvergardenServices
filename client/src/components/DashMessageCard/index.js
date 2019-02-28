@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap'
+import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Badge } from 'reactstrap'
 import './style.css'
 
 class MessageCard extends Component {
@@ -9,10 +9,11 @@ class MessageCard extends Component {
         <ListGroup>
           <ListGroupItem>
             <ListGroupItemHeading
-              className='Message-Card-Title'
+              className='Message-Card-Title clearfix'
             >
-              {this.props.title}
+              {this.props.title}<Badge className='float-right' color='warning' pill>{this.props.sent}</Badge>
             </ListGroupItemHeading>
+            
             <ListGroupItemText
               className='Message-Card-Message'
             >

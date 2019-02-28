@@ -21,7 +21,8 @@ class Dashboard extends Component {
     title: '',
     message: '',
     scheduleDate: '',
-    recipientId: ''
+    recipientId: '',
+    sent: ''
   }
 
   componentDidMount() {
@@ -52,7 +53,8 @@ class Dashboard extends Component {
           title:'',
           message: '',
           scheduleDate: '',
-          recipientId: _id
+          recipientId: _id,
+          sent: ''
         })
       })
       .catch(err => console.log(err));
@@ -76,6 +78,7 @@ class Dashboard extends Component {
           title={this.state.title}
           body={this.state.message}
           date={this.state.scheduleDate}
+          sent={this.state.sent}
           key={this.state.id}
         />}
       </div>
