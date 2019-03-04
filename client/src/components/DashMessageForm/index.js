@@ -56,7 +56,7 @@ export default class MessageForm extends Component {
                   value={this.state.title}
                   onChange={this.handleChangeTitle}
                   name="title"
-                  placeholder="title"
+                  placeholder="Title"
                 />
               </FormGroup>
             </Col>
@@ -78,7 +78,7 @@ export default class MessageForm extends Component {
               className="message-box"
               type="textarea"
               name="message"
-              placeholder="Your message here"
+              placeholder="Your message here..."
               value={this.state.message}
               onChange={this.handleChangeMessage}
             />
