@@ -1,7 +1,7 @@
 .Dashboard {
   display:grid;
   grid-template-columns: repeat(6,1fr);
-  grid-template-rows: repeat(12,1fr);
+  /* grid-template-rows: repeat(12,1fr); */
   /* background: none; */
   background-color: white;
   overflow: hidden;

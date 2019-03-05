@@ -1,19 +1,23 @@
 
 .Sidebar {
-  border: 1px solid lightgrey;
-  max-height: 80%;
+  border-right: 1px solid lightgrey;
+  max-height: 100%;
   grid-column: 1/2;
   grid-row: 2/25;
   /* display: flex; */
   /* flex-flow: column wrap; */
-  background-color: #8c60da;
-  border-radius: 6px;
+  /* border-radius: 6px; */
+  background-color: #fff;
   padding: 5px;
   overflow: auto;
 }
 
 .Sidebar h1 {
   text-align: center;
+}
+
+.modalBody {
+    text-align: center;
 }
 
 ::-webkit-scrollbar-track
@@ -36,3 +40,5 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #5c2fa8;
 }
+
+
