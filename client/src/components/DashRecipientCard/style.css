@@ -2,16 +2,23 @@
   margin: 10px 0px;
   text-align: center;
   font-size: 16px;
-  font-weight: 400;
+  padding: 0;
+  /* font-weight: 400; */
   /* color: #8c60da; */
   cursor: pointer;
+  width: 100%;
+  border: none;
+  border-radius: 25px;
 }
 
 .CardTitle {
+  background-color: #F2F2F2!important;
+  outline: none!important;
   /* padding-top: 10px; */
   /* padding-left: 18px; */
   text-align: center;
-  background-color: #F2F2F2!important;
+  width: 100%;
+  border: none;
   transition: 0.4s;
 }
 
@@ -24,11 +31,7 @@
 
 }
 
-.CardTitle:hover {
+.CardTitle:hover, .CardTitle:active {
   background-color: rgb(219, 219, 219)!important;
   transition: 0.4s;
-}
-
-.CardTitle:active {
-  background-color: rgb(201, 201, 201)!important;
 }
