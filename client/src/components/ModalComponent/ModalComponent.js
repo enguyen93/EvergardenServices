@@ -48,7 +48,7 @@ export default class ModalComponent extends React.Component {
     return (
 
       <div className="modalBody">
-        <h1>Add a new Recipient</h1>
+        {/* <h1>Add a new Recipient</h1> */}
         <Button color="success" onClick={this.toggle}>+ Add Recipient</Button>
 
         <Modal isOpen={this.state.modal}>
