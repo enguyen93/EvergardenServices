@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import './style.css'
+import React, { Component } from "react";
+import "./style.css";
 
-import RecipientList from '../DashRecipientList'
-import ModalComponent from '../ModalComponent/ModalComponent'
+import RecipientList from "../DashRecipientList";
+import ModalComponent from "../ModalComponent/ModalComponent";
 
 class Sidebar extends Component {
   render() {
     return (
       <div className="Sidebar">
-        <ModalComponent />
+        <ModalComponent loadRecipients={this.props.loadRecipients} />
         <RecipientList
           Recipients={this.props.Recipients}
           name={this.props.name}
@@ -17,8 +17,7 @@ class Sidebar extends Component {
           Rid={this.props.Rid}
         />
       </div>
-
-    )
+    );
   }
 }
 export default Sidebar;
