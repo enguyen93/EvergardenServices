@@ -4,9 +4,8 @@ import './style.css'
 import RecipientCard from '../DashRecipientCard';
 
 class RecipientList extends Component {
-
   render() {
-    console.log(this.props)
+    console.log(this.state)
     return (
       this.props.Recipients.map(recipient => (
         <RecipientCard

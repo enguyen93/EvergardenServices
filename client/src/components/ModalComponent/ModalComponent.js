@@ -6,71 +6,34 @@ import "./style.css";
 
 
 export default class ModalComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { modal: false, name: '', email: '' };
-
-    this.toggle = this.toggle.bind(this);
-    this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleChangeEmail = this.handleChangeEmail.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
-  handleChangeName(event) {
-    this.setState({ name: event.target.value });
-  }
-  handleChangeEmail(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-
-    const newRecip = {
-      name: this.state.name,
-      email: this.state.email
-    }
-    API.postRecipients(newRecip)
-      .then(res => {
-        console.log(res.data)
-
-      }
-      )
-      .catch(err => console.log(err));
-  }
 
   render() {
     return (
 
       <div className="modalBody">
         <h1>Add a new Recipient</h1>
-        <Button color="success" onClick={this.toggle}>+ Add Recipient</Button>
+        <Button color="success" onClick={this.props.toggle}>+ Add Recipient</Button>
 
-        <Modal isOpen={this.state.modal}>
-          <form onSubmit={this.handleSubmit}>
+        <Modal isOpen={this.props.modal}>
+          <form onSubmit={this.props.handleSubmit}>
             <ModalHeader>Add a new Recipient</ModalHeader>
             <ModalBody>
               <div className="row">
                 <div className="form-group col-md-12">
                   <label>Name:</label>
-                  <input type="text" value={this.state.name} onChange={this.handleChangeName} className="form-control modal-inputs" />
+                  <input type="text" value={this.props.name} onChange={this.props.handleChangeName} className="form-control modal-inputs" />
                 </div>
               </div>
               <div className="row">
                 <div className="form-group col-md-12">
                   <label>Email:</label>
-                  <input type="text" value={this.state.email} onChange={this.handleChangeEmail} className="form-control modal-inputs" />
+                  <input type="text" value={this.props.email} onChange={this.props.handleChangeEmail} className="form-control modal-inputs" />
                 </div>
               </div>
             </ModalBody>
             <ModalFooter>
-              <input id="modal-submit-button" type="submit" onClick={this.toggle} value="Submit" color="info" className="btn btn-primary" />
-              <Button id="modal-cancel-button" color="danger" onClick={this.toggle}>Cancel</Button>
+              <input id="modal-submit-button" type="submit" onClick={this.props.toggle} value="Submit" color="info" className="btn btn-primary" />
+              <Button id="modal-cancel-button" color="danger" onClick={this.props.toggle}>Cancel</Button>
             </ModalFooter>
           </form>
         </Modal>
