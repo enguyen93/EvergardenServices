@@ -14,19 +14,19 @@ class Sidebar extends Component {
       email: '', 
       Recipients:[]}
   }
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
   }
-  handleChangeName(event) {
+  handleChangeName = (event) => {
     this.setState({ name: event.target.value });
   }
-  handleChangeEmail(event) {
+  handleChangeEmail = (event) => {
     this.setState({ email: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const newRecip = {
