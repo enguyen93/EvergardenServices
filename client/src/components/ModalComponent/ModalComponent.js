@@ -18,19 +18,19 @@ class ModalComponent extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
   }
-  handleChangeName(event) {
+  handleChangeName = (event) => {
     this.setState({ name: event.target.value });
   }
-  handleChangeEmail(event) {
+  handleChangeEmail = (event) => {
     this.setState({ email: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const newRecip = {
@@ -38,7 +38,14 @@ class ModalComponent extends React.Component {
       email: this.state.email
     };
     API.postRecipients(newRecip)
+    .then(res => {
+        this.setState({
+          Recipients: res.data,
+        })
+        console.log(this.state.Recipients)
+      })
       .then(this.props.getRecipients())
+      
       .catch(err => console.log(err));
   }
 
