@@ -1,10 +1,13 @@
 //ModalComponent.js
 import React from "react";
+import { connect } from "react-redux";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import PropTypes from "prop-types";
+import { getRecipients } from "../../actions/modalActions";
 import API from "../../utils/API";
 import "./style.css";
 
-export default class ModalComponent extends React.Component {
+class ModalComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = { modal: false, name: "", email: "" };
@@ -35,7 +38,7 @@ export default class ModalComponent extends React.Component {
       email: this.state.email
     };
     API.postRecipients(newRecip)
-      .then(this.props.loadRecipients())
+      .then(this.props.getRecipients())
       .catch(err => console.log(err));
   }
 
@@ -97,3 +100,13 @@ export default class ModalComponent extends React.Component {
     );
   }
 }
+
+ModalComponent.propTypes = {
+  getRecipients: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  recipients: state.recipients
+})
+
+export default connect (mapStateToProps, { getRecipients }) (ModalComponent);

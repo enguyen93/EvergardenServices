@@ -69,7 +69,6 @@ class Dashboard extends Component {
           name={this.state.name}
           email={this.state.email}
           getMessages={this.loadMessages}
-          loadRecipients={this.loadRecipients}
         />
         {this.state.Messages && <MainContent
           recipientId={this.state.recipientId}

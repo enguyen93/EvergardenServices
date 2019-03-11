@@ -8,7 +8,7 @@ class Sidebar extends Component {
   render() {
     return (
       <div className="Sidebar">
-        <ModalComponent loadRecipients={this.props.loadRecipients} />
+        <ModalComponent/>
         <RecipientList
           Recipients={this.props.Recipients}
           name={this.props.name}
