@@ -26,12 +26,13 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.loadRecipients();
+    console.log("loaded recipients just now")
   }
   // loads all recipients of the current user to state
   loadRecipients = () => {
     API.getRecipients()
       .then(res => {
-        // console.log(res.data)
+        console.log(res.data)
       
         this.setState({
           Recipients: res.data,
@@ -69,7 +70,8 @@ class Dashboard extends Component {
           name={this.state.name}
           email={this.state.email}
           getMessages={this.loadMessages}
-          loadRecipients={this.loadRecipients}
+          loadRecipients = {this.loadRecipients}
+
         />
         {this.state.Messages && <MainContent
           recipientId={this.state.recipientId}
