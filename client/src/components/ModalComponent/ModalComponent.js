@@ -10,7 +10,7 @@ export default class ModalComponent extends React.Component {
   render() {
     return (
       <div className="modalBody">
-        <h1>Add a new Recipient</h1>
+        {/* <h1>Add a new Recipient</h1> */}
         <Button color="success" onClick={this.props.toggle}>+ Add Recipient</Button>
 
 
