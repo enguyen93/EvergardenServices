@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import API from "../../utils/API";
+
 import RecipientList from "../DashRecipientList";
 import ModalComponent from "../ModalComponent/ModalComponent";
 
@@ -53,6 +54,7 @@ class Sidebar extends Component {
           handleChangeEmail={this.handleChangeEmail}
           handleSubmit={this.handleSubmit}
         />
+
         <RecipientList
           Recipients={this.props.Recipients}
           name={this.props.name}
