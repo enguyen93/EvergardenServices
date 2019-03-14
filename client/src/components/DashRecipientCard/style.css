@@ -2,12 +2,36 @@
   margin: 10px 0px;
   text-align: center;
   font-size: 16px;
-  font-weight: bold;
-  color: #8c60da;
+  padding: 0;
+  /* font-weight: 400; */
+  /* color: #8c60da; */
   cursor: pointer;
+  width: 100%;
+  border: none;
+  border-radius: 25px;
 }
 
 .CardTitle {
-  padding-top: 10px;
-  padding-left: 18px;
+  background-color: #F2F2F2!important;
+  outline: none!important;
+  /* padding-top: 10px; */
+  /* padding-left: 18px; */
+  text-align: center;
+  width: 100%;
+  border: none;
+  transition: 0.4s;
+}
+
+.card-title {
+  margin: 0;
+  padding: 1%;
+}
+
+.card {
+
+}
+
+.CardTitle:hover, .CardTitle:active {
+  background-color: rgb(219, 219, 219)!important;
+  transition: 0.4s;
 }

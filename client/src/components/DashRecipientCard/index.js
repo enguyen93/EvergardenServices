@@ -6,7 +6,7 @@ class RecipientCard extends Component {
   render() {
     const { name, _id } = this.props.recipient;
     return (
-      <div className="RecipientCard">
+      <button className="RecipientCard">
         <Card
           onClick={() => this.props.getMessages(_id)}
 
@@ -17,7 +17,7 @@ class RecipientCard extends Component {
             { name }
           </CardTitle>
         </Card>
-      </div>
+      </button>
 
       // <div className='recipient-card'>
       //   <h4>recipient name</h4>

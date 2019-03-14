@@ -9,4 +9,9 @@
 
 .submit-button {
   /* float: right; */
+  background-color: #8C60DB!important;
+}
+
+.Active-Messages {
+  background-color: #61CB9D!important;
 }
