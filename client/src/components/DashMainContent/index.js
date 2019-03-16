@@ -13,13 +13,13 @@ class MainContent extends Component {
           body={this.props.message}
           date={this.props.scheduleDate}
           recipientId={this.props.recipientId}
+          loadMessages = {this.props.loadMessages}
         />
         <MessageList
           Messages={this.props.Messages}
           title={this.props.title}
           body={this.props.message}
           date={this.props.scheduleDate}
-          // getMessages={this.props.loadMessages}
         />
       </div>
     )

@@ -80,6 +80,7 @@ class Dashboard extends Component {
           body={this.state.message}
           date={this.state.scheduleDate}
           key={this.state.id}
+          loadMessages = {this.loadMessages}
         />}
       </div>
     );

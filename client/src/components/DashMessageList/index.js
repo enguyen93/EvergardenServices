@@ -23,7 +23,6 @@ class MessageList extends Component {
                   title={message.title}
                   body={message.body}
                   key={message.id}
-                // getMessages={message.getMessages}
                 />
               ))}
 

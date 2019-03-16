@@ -36,9 +36,8 @@ export default class MessageForm extends Component {
       scheduleDate: this.state.scheduleDate
     };
     API.postMessages(newMessage)
-      .then(res => {
-        // console.log(res.data);
-        console.log(newMessage);
+      .then(() => {
+        this.props.loadMessages();
       })
       .catch(err => console.log(err));
   }
