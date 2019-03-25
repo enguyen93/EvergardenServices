@@ -18,3 +18,13 @@ div.Dashboard {
   /* position: relative; */
   height: 100vh;
 }
+
+Placeholder {
+  grid-column: 3 / 6;
+  /* grid-row: 2/13; */
+  /* margin: 0 0 0 0;
+  padding: 5%;
+  width: auto;
+  overflow: auto;
+  height: 100%; */
+}

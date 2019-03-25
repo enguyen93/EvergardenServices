@@ -18,6 +18,11 @@ class MessageCard extends Component {
             >
               {this.props.message}
             </ListGroupItemText>
+            <ListGroupItemText
+              className='Message-Card-Date'
+            >
+              {this.props.date}
+            </ListGroupItemText>
           </ListGroupItem>
         </ListGroup>
       </div>

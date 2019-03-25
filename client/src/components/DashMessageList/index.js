@@ -22,6 +22,7 @@ class MessageList extends Component {
                   message={message.message}
                   title={message.title}
                   body={message.body}
+                  date={message.scheduleDate}
                   key={message.id}
                 // getMessages={message.getMessages}
                 />

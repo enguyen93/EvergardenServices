@@ -3,6 +3,7 @@ import './style.css'
 
 import MessageForm from '../DashMessageForm'
 import MessageList from '../DashMessageList'
+import Placeholder from '../DashPlaceholder'
 
 class MainContent extends Component {
   render() {
@@ -21,6 +22,7 @@ class MainContent extends Component {
           date={this.props.scheduleDate}
           // getMessages={this.props.loadMessages}
         />
+        
       </div>
     )
   }

@@ -5,6 +5,7 @@ import API from '../../utils/API';
 import MyNav from '../DashNav'
 import Sidebar from '../DashSidebar'
 import MainContent from '../DashMainContent'
+import Placeholder from '../DashPlaceholder'
 
 class Dashboard extends Component {
   state = {
@@ -81,6 +82,7 @@ class Dashboard extends Component {
           date={this.state.scheduleDate}
           key={this.state.id}
         />}
+        
       </div>
     );
   }
