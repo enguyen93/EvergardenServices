@@ -4,7 +4,7 @@ Our goal with this project was to allow you to make connections with those that 
 
 #### Check it out [here](https://evergardenservices.herokuapp.com/).
 
-![screenshot](client/public/img/Evergarden.png)
+![EvergardenHome](client/public/img/Evergarden.PNG)
 
 ## Built With
 
