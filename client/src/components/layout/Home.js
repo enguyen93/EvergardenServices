@@ -41,9 +41,7 @@ return (
           <br /> keeps on giving
         </FullText>
         <FullMini>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
-          leo vehicula, congue dolor in, pretium enim. Vivamus nec ultrices
-          lacus.
+          No letter that could be sent deserves to go undelivered.
         </FullMini>
         <Link to="/register">
           <Button>Get Started</Button>
